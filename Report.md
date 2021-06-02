@@ -2,7 +2,7 @@
 
 ## Learning Algorithm
 
-The chosen algorithm implemented is Deep Deterministic Policy Gradient (DDPG). This algorithm can be thought of as an Actor-Critic agent, or a DQN agent for continuous spaces.
+The chosen algorithm implemented is Deep Deterministic Policy Gradient (DDPG). This algorithm can be thought of as an Actor-Critic agent, or a DQN agent for continuous spaces. A key feature is the use of a batch normalization layer in each network, this helped both networks deal with the high dimensional continuous state space.
 
 State Space: 33
 Action Space: 4
