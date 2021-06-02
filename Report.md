@@ -40,6 +40,8 @@ DDPG also takes advantage of a Replay Buffer.
 
 Like DQN, DDPG maintains two copies of the neural network, the "regular" network and the "target" network. DQN runs a bunch of time steps then copies the weights learned in the regular network into the target network all at once. In DDPG, this process is done more gradually in the form of a "Soft-Update". The TAU parameter controls how much the target network is moved towards the regular network at each step.
 
+Small modifications to the DDPG agent found [here](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) we made to accomidate running and training 20 agents from the same Actor/Critic networks. Running with the many agents helps improve overall training speed, since more independent experiences will end up in the replay buffer.
+
 ## Plot of Rewards
 
 ![Performance Chart](performance.png)
