@@ -2,7 +2,7 @@
 
 ## Learning Algorithm
 
-Actor-Critic Algorithm - TODO
+The chosen algorithm implemented is Deep Deterministic Policy Gradient (DDPG). This algorithm can be thought of as an Actor-Critic agent, or a DQN agent for continuous spaces.
 
 State Space: 33
 Action Space: 4
@@ -30,9 +30,15 @@ LR_CRITIC = 1e-4        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 ```
 
-### Actor-Critic Explanation
+### DDPG Explanation
 
-TODO
+Actor-Critic methods take advantage of the strengths of both policy-based methods and value-based methods. By combining both kinds of methods, the negatives (for policy-based methods, high variance; for value-based methods, biased results) are reduced, hopefully giving an overall better agent with quicker convergence.
+
+The Actor in DDPG attempts to predict the best action for every given state (a deterministic policy, instead of a stocastic policy from other Actors in Actor-Critic methods). The critic then uses the actors best action, along with the given state, to estimate the total value of that action in that state. This is very similar to the TD update used in DQN (see project 1).
+
+DDPG also takes advantage of a Replay Buffer.
+
+Like DQN, DDPG maintains two copies of the neural network, the "regular" network and the "target" network. DQN runs a bunch of time steps then copies the weights learned in the regular network into the target network all at once. In DDPG, this process is done more gradually in the form of a "Soft-Update". The TAU parameter controls how much the target network is moved towards the regular network at each step.
 
 ## Plot of Rewards
 
@@ -42,4 +48,6 @@ After hitting 249 episodes, the past 100 episodes (averaged over 20 agents) met 
 
 ## Ideas for Future Work
 
-TODO
+In finding the correct hyper-parameters, larger networks were found to do pretty well (before adding in the batch normalization layer into each network). Higher performance is likely to come from combing both, the larger networks and additional batch normalization layers. 
+
+Prioritized Replays (where "boring" experiences are dropped) would also help improve the agent and allow it to train quicker.
