@@ -2,10 +2,10 @@
 
 ## Learning Algorithm
 
-The chosen algorithm implemented is Deep Deterministic Policy Gradient (DDPG). This algorithm can be thought of as an Actor-Critic agent, or a DQN agent for continuous spaces. A key feature is the use of a batch normalization layer in each network, this helped both networks deal with the high dimensional continuous state space.
+The chosen algorithm implemented is Multi-Agent Deep Deterministic Policy Gradient (MADDPG). This algorithm extends the DDPG algorithm for use in Multi-Agent problems. Each agent gets it's own Actor/Critic Networks that it trains.
 
-State Space: 33
-Action Space: 4
+State Space: 24
+Action Space: 2
 
 Actor Architecture (States to Actions):
   1. Linear Layer (33 -> 128, ReLU Activation)
